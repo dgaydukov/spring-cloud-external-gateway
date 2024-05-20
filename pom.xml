@@ -34,11 +34,6 @@
 
     <dependencies>
         <dependency>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <groupId>org.springframework.boot</groupId>
-        </dependency>
-
-        <dependency>
             <artifactId>micrometer-tracing-bridge-brave</artifactId>
             <groupId>io.micrometer</groupId>
         </dependency>
