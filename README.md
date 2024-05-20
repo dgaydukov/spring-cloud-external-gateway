@@ -3,7 +3,8 @@
 ### How to use
 This service serve as gateway or proxy to all other services that are hidden behind VPC. To access services some requirements should be met, for example authentication, and it's better to have a single gateway in front of other services through which all the requests would go, and it would act as proxy that would validate auth and forward request to specified service. There are 2 types of endpoints:
 * public - you don't need to any auth to access them, this is `/info/version` API endpoint in each microservice
-* private - you have to pass auth token to access them
+* private - you have to pass auth token to access them (here you can pass anything you want including HMAC signature and JWT, look into `AuthServiceImpl`)
+Public endpoints:
 ```shell
 # call version API for asset-service
 curl http://127.0.0.1:8083/asset-service/info/version
@@ -15,7 +16,7 @@ Private endpoints:
 # add new asset
 curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' -d '{"symbol":"BTC","price":100}' http://localhost:8083/asset-service/asset/price
 # get asset price
-curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8081/asset/price/BTC
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8083/asset-service/asset/price/BTC
 # create new order
 curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' -d '{"symbol":"BTC","quantity":5}' http://localhost:8083/order-service/order
 # get order by symbol
