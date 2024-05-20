@@ -10,8 +10,8 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.exchange</groupId>
-    <artifactId>asset-service</artifactId>
-    <name>asset-service</name>
+    <artifactId>external-gateway</artifactId>
+    <name>external-gateway</name>
 
     <properties>
         <java.version>17</java.version>
