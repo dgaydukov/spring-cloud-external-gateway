@@ -5,7 +5,8 @@ This service serve as gateway or proxy to all other services that are hidden beh
 * public - you don't need to any auth to access them, this is `/info/version` API endpoint in each microservice
 * private - you have to pass auth token to access them
 ```shell
-
+# call version API for asset-service
+# call version API for order-service
 ```
 
 ### Nacos config
