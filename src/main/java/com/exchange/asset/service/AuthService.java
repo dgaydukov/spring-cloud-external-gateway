@@ -1,5 +1,6 @@
 package com.exchange.asset.service;
 
 public interface AuthService {
-  boolean auth();
+  boolean authByApiKey(String apiKey, String sign);
+  int getUserIdByApiKey(String apiKey);
 }

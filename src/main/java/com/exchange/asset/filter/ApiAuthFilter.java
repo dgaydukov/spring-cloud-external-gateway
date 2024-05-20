@@ -1,6 +1,8 @@
 package com.exchange.asset.filter;
 
+import com.exchange.asset.service.AuthService;
 import java.util.function.Consumer;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
@@ -15,7 +17,10 @@ import reactor.core.publisher.Mono;
 
 @Component
 @Slf4j
+@RequiredArgsConstructor
 public class ApiAuthFilter extends AbstractGatewayFilterFactory {
+    private final AuthService authService;
+
     @Override
     public GatewayFilter apply(Object config) {
         return new InnerApiAuthFilter();
@@ -34,9 +39,10 @@ public class ApiAuthFilter extends AbstractGatewayFilterFactory {
                 ServerHttpRequest request = exchange.getRequest();
                 apiKey = request.getHeaders().getFirst("X-API-KEY");
                 sign = request.getHeaders().getFirst("X-API-SIGNATURE");
-                final int userId = 1;
-                System.out.println(apiKey+" => "+sign);
-                return handle(exchange, chain, true, userId, apiKey, sign);
+                if (authService.authByApiKey(apiKey, sign)){
+                    final int userId = authService.getUserIdByApiKey(apiKey);
+                    return handle(exchange, chain, true, userId, apiKey, sign);
+                }
             } catch (Exception ex) {
                 log.error("Failed to process request", ex);
             }

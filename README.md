@@ -6,6 +6,7 @@ This service serve as gateway or proxy to all other services that are hidden beh
 * private - you have to pass auth token to access them
 ```shell
 # call version API for asset-service
+curl http://127.0.0.1:8083/asset-service/info/version
 # call version API for order-service
 ```
 
