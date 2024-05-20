@@ -1,9 +1,11 @@
 package com.exchange.asset.filter;
 
 import com.exchange.asset.service.AuthService;
+import java.util.List;
 import java.util.function.Consumer;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -20,6 +22,8 @@ import reactor.core.publisher.Mono;
 @RequiredArgsConstructor
 public class ApiAuthFilter extends AbstractGatewayFilterFactory {
     private final AuthService authService;
+    @Value("${spring.cloud.gateway.whitelistUrls}")
+    private List<String> whitelistUrls;
 
     @Override
     public GatewayFilter apply(Object config) {
@@ -37,6 +41,9 @@ public class ApiAuthFilter extends AbstractGatewayFilterFactory {
             String sign = null;
             try {
                 ServerHttpRequest request = exchange.getRequest();
+                if (whitelistUrls.contains(request.getPath().value())){
+                    return handle(exchange, chain, true, 0, null, null);
+                }
                 apiKey = request.getHeaders().getFirst("X-API-KEY");
                 sign = request.getHeaders().getFirst("X-API-SIGNATURE");
                 if (authService.authByApiKey(apiKey, sign)){

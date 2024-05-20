@@ -8,6 +8,7 @@ This service serve as gateway or proxy to all other services that are hidden beh
 # call version API for asset-service
 curl http://127.0.0.1:8083/asset-service/info/version
 # call version API for order-service
+curl http://127.0.0.1:8083/order-service/info/version
 ```
 
 ### Nacos config

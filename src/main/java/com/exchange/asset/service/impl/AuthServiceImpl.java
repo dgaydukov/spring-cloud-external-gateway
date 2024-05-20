@@ -8,9 +8,17 @@ import org.springframework.stereotype.Service;
 @Service
 public class AuthServiceImpl implements AuthService {
 
+  /**
+   * You can rewrite this code to validate whatever you want including
+   * HMAC or JWT
+   */
   @Override
   public boolean authByApiKey(String apiKey, String sign) {
-    return true;
+    final String ADMIN = "admin";
+    if (ADMIN.equals(apiKey) && ADMIN.equals(sign)){
+      return true;
+    }
+    return false;
   }
 
   @Override
