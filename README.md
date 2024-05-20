@@ -17,9 +17,9 @@ curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: applica
 # get asset price
 curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8081/asset/price/BTC
 # create new order
-curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' -d '{"symbol":"BTC","quantity":5}' http://localhost:8082/order
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' -d '{"symbol":"BTC","quantity":5}' http://localhost:8083/order-service/order
 # get order by symbol
-curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8082/order/BTC
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8083/order-service/order/BTC
 ```
 
 ### Nacos config
