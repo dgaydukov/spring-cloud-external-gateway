@@ -1,5 +1,6 @@
 package com.exchange.asset.filter;
 
+import com.exchange.asset.config.Constants;
 import com.exchange.asset.service.AuthService;
 import java.util.List;
 import java.util.function.Consumer;
@@ -51,8 +52,8 @@ public class ApiAuthFilter extends AbstractGatewayFilterFactory {
         if (whitelistUrls.contains(request.getPath().value())) {
           return handle(exchange, chain, true, 0, null, null);
         }
-        apiKey = request.getHeaders().getFirst("X-API-KEY");
-        sign = request.getHeaders().getFirst("X-API-SIGNATURE");
+        apiKey = request.getHeaders().getFirst(Constants.HEADER_NAME_API_KEY);
+        sign = request.getHeaders().getFirst(Constants.HEADER_NAME_SIGN);
         if (authService.authByApiKey(apiKey, sign)) {
           final int userId = authService.getUserIdByApiKey(apiKey);
           return handle(exchange, chain, true, userId, apiKey, sign);

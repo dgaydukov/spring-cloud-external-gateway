@@ -5,7 +5,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 /**
- * You can rewrite this code to validate whatever you want including HMAC or JWT
+ * This is example implementation with hardcoded value and userId
+ * In practice you can rewrite this class to either: fetch data from db, make HMAC signature verification
+ * or validate JWT token, all can be done here
  */
 @Slf4j
 @Service
