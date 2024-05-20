@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 @RefreshScope
 public class AppProps {
 
-    @Value("${app.config.env:dev}")
-    private String configEnv;
+  @Value("${app.config.env:dev}")
+  private String configEnv;
 
-    @Value("${app.config.print:true}")
-    private boolean printConfig;
+  @Value("${app.config.print:true}")
+  private boolean printConfig;
 }

@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 public class ExternalGatewayService {
 
-    public static void main(String[] args) {
-        SpringApplication.run(ExternalGatewayService.class, args);
-    }
+  public static void main(String[] args) {
+    SpringApplication.run(ExternalGatewayService.class, args);
+  }
 }

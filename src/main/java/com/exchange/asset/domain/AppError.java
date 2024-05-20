@@ -9,8 +9,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class AppError {
 
-    private int code;
-    private String errorCode;
-    private String msg;
-    private String traceId;
+  private int code;
+  private String errorCode;
+  private String msg;
+  private String traceId;
 }
