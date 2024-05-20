@@ -57,6 +57,11 @@
             <groupId>com.alibaba.cloud</groupId>
             <version>${nacos.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
+            <version>${spring.cloud.version}</version>
+        </dependency>
         <!--   These 3 dependencies use for Cloud.Feign, we don't use them now     -->
         <dependency>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
