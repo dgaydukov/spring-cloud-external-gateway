@@ -10,6 +10,17 @@ curl http://127.0.0.1:8083/asset-service/info/version
 # call version API for order-service
 curl http://127.0.0.1:8083/order-service/info/version
 ```
+Private endpoints:
+```shell
+# add new asset
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' -d '{"symbol":"BTC","price":100}' http://localhost:8083/asset-service/asset/price
+# get asset price
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8081/asset/price/BTC
+# create new order
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' -d '{"symbol":"BTC","quantity":5}' http://localhost:8082/order
+# get order by symbol
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8082/order/BTC
+```
 
 ### Nacos config
 Make sure your nacos server is running and you pass it's IP into config variables. If you try to run
