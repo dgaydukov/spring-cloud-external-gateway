@@ -1,5 +1,11 @@
 # External gateway
 
+### Content
+* [How to use](#how-to-use)
+* [I18n support](#i18n-support)
+* [Nacos env vars](#nacos-env-vars)
+* [Links](#links)
+
 ### How to use
 This service serve as gateway or proxy to all other services that are hidden behind VPC. To access services some requirements should be met, for example authentication, and it's better to have a single gateway in front of other services through which all the requests would go, and it would act as proxy that would validate auth and forward request to specified service. There are 2 types of endpoints:
 * public - you don't need to any auth to access them, this is `/info/version` API endpoint in each microservice
@@ -30,7 +36,7 @@ curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'Accept-Language: es' 
 {"code":100001,"errorCode":"price_not_found","msg":"No se pudo obtener el precio de ABC","traceId":"664c52e4c60e74602dc96f112d1975f8"}
 ```
 
-### Nacos config
+### Nacos env vars
 Make sure your nacos server is running and you pass it's IP into config variables. If you try to run
 this app without nacos config then it won't start.
 ```
