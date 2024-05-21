@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory {
+public class AuthGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
   private final AuthGatewayFilter authGatewayFilter;
 
   @Override

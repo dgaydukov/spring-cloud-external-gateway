@@ -12,7 +12,7 @@ spring:
             - Path=/asset-service/**
           filters:
             - StripPrefix=1
-            - ApiAuthFilter
+            - AuthGatewayFilterFactory
         - id: order-service-route
           order: 2
           uri: lb://order-service
@@ -20,7 +20,7 @@ spring:
             - Path=/order-service/**
           filters:
             - StripPrefix=1
-            - ApiAuthFilter
+            - AuthGatewayFilterFactory
       whitelistUrls: >
         /asset-service/info/version,
         /order-service/info/version
