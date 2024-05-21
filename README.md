@@ -37,3 +37,10 @@ this app without nacos config then it won't start.
 NACOS_SERVER_IP=127.0.0.1;
 NACOS_SERVER_ID=31b66f4e-dbf4-4745-a359-2d9701f436e5;
 ```
+
+### Links
+This project is a part of spring cloud microservices that includes following projects:
+* [asset-service](https://github.com/dgaydukov/spring-cloud-asset-service) - provide asset price information
+* [order-service](https://github.com/dgaydukov/spring-cloud-order-service) - calls asset service to get the price
+* [external-gateway](https://github.com/dgaydukov/spring-cloud-external-gateway) - serve as gateway to forward requests from customers. You can call above 2 services from this gateway.
+* [cloud project docs](https://github.com/dgaydukov/spring-cloud-project?tab=readme-ov-file) - special repository with all documentation for intra-service communication
