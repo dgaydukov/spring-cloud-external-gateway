@@ -24,7 +24,7 @@ import reactor.core.publisher.Mono;
 public class ApiAuthFilter extends AbstractGatewayFilterFactory {
 
   private final AuthService authService;
-  @Value("${spring.cloud.gateway.whitelistUrls}")
+  @Value("${spring.cloud.gateway.whitelistUrls:}")
   private List<String> whitelistUrls;
 
   @Override

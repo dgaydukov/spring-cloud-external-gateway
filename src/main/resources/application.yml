@@ -6,19 +6,21 @@ spring:
     gateway:
       routes:
         - id: asset-service-route
+          order: 1
           uri: lb://asset-service
           predicates:
             - Path=/asset-service/**
           filters:
-            - StripPrefix=0
+            - StripPrefix=1
             - ApiAuthFilter
         - id: order-service-route
+          order: 2
           uri: lb://order-service
           predicates:
             - Path=/order-service/**
           filters:
-            - StripPrefix=0
+            - StripPrefix=1
             - ApiAuthFilter
-      whitelistUrls:
-        - /asset-service/info/version
-        - /order-service/info/version
+      whitelistUrls: >
+        /asset-service/info/version,
+        /order-service/info/version
