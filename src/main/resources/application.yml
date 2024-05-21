@@ -1,2 +1,24 @@
 server:
   port: 8083
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: asset-service-route
+          uri: lb://asset-service
+          predicates:
+            - Path=/asset-service/**
+          filters:
+            - StripPrefix=0
+            - ApiAuthFilter
+        - id: order-service-route
+          uri: lb://order-service
+          predicates:
+            - Path=/order-service/**
+          filters:
+            - StripPrefix=0
+            - ApiAuthFilter
+      whitelistUrls:
+        - /asset-service/info/version
+        - /order-service/info/version
