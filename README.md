@@ -22,6 +22,13 @@ curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: applica
 # get order by symbol
 curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'content-type: application/json' http://localhost:8083/order-service/order/BTC
 ```
+Here is example with i18n
+```shell
+# call asset-service to get price for non-existing coin ABC
+curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'Accept-Language: es' -H 'content-type: application/json' http://localhost:8083/asset-service/asset/price/ABC
+# since there is no such price for ABC, asset-service will return 400 with error in Spanish
+{"code":100001,"errorCode":"price_not_found","msg":"No se pudo obtener el precio de ABC","traceId":"664c52e4c60e74602dc96f112d1975f8"}
+```
 
 ### Nacos config
 Make sure your nacos server is running and you pass it's IP into config variables. If you try to run
