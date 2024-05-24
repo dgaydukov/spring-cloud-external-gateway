@@ -7,6 +7,8 @@
 * [Links](#links)
 
 ### How to use
+>Important: This service requires the nacos to be running first, otherwise it won't be able to start. Plz make sure you successfully run nacos locally through the docker, then you can run this app. You can read [how to run nacos locally](https://github.com/dgaydukov/spring-cloud-project)
+
 This service serve as gateway or proxy to all other services that are hidden behind VPC. To access services some requirements should be met, for example authentication, and it's better to have a single gateway in front of other services through which all the requests would go, and it would act as proxy that would validate auth and forward request to specified service. There are 2 types of endpoints:
 * public - you don't need to any auth to access them, this is `/info/version` API endpoint in each microservice
 * private - you have to pass auth token to access them (here you can pass anything you want including HMAC signature and JWT, look into `AuthServiceImpl`)
