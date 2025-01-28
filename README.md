@@ -4,6 +4,7 @@
 * [How to use](#how-to-use)
 * [I18n support](#i18n-support)
 * [Nacos env vars](#nacos-env-vars)
+* [Test coverage](#test-coverage)
 * [Links](#links)
 
 ### How to use
@@ -38,6 +39,9 @@ curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'Accept-Language: es' 
 {"code":100001,"errorCode":"price_not_found","msg":"No se pudo obtener el precio de ABC","traceId":"664c52e4c60e74602dc96f112d1975f8"}
 ```
 
+### I18n support
+
+
 ### Nacos env vars
 Make sure your nacos server is running and you pass it's IP into config variables. If you try to run
 this app without nacos config then it won't start.
@@ -45,6 +49,10 @@ this app without nacos config then it won't start.
 NACOS_SERVER_IP=127.0.0.1;
 NACOS_SERVER_ID=31b66f4e-dbf4-4745-a359-2d9701f436e5;
 ```
+
+### Test coverage
+Testing is the most important thing when we develop apps. I stick to TDD where we first write tests and later add code that pass your tests. Here we have the following tests:
+* [MessageTranslationServiceTest](src/test/java/com/exchange/asset/service/MessageTranslationServiceTest.java) - test message tranlsation
 
 ### Links
 This project is a part of spring cloud microservices that includes following projects:
