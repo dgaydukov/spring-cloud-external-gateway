@@ -52,7 +52,7 @@ NACOS_SERVER_ID=31b66f4e-dbf4-4745-a359-2d9701f436e5;
 
 ### Test coverage
 Testing is the most important thing when we develop apps. I stick to TDD where we first write tests and later add code that pass your tests. Here we have the following tests:
-* [MessageTranslationServiceTest](src/test/java/com/exchange/asset/service/MessageTranslationServiceTest.java) - test message tranlsation
+* [MessageTranslationServiceTest](src/test/java/com/exchange/asset/service/MessageTranslationServiceTest.java) - simple test to check that translation works as expected
 
 ### Links
 This project is a part of spring cloud microservices that includes following projects:
