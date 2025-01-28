@@ -40,10 +40,10 @@ curl -H 'X-API-KEY: admin' -H 'X-API-SIGNATURE: admin' -H 'Accept-Language: es' 
 ```
 
 ### I18n support
-
+We have automatic support for multiple language. You can check out auto-testing for this.
 
 ### Nacos env vars
-Make sure your nacos server is running and you pass it's IP into config variables. If you try to run
+Make sure your nacos server is running, and you pass its IP into config variables. If you try to run
 this app without nacos config then it won't start.
 ```
 NACOS_SERVER_IP=127.0.0.1;
